@@ -9,7 +9,6 @@ class PodcastField extends PureComponent {
     show: {},
     episodes: [],
     track_id: "",
-    // previousEpisodeIndex: 0,
     currentEpisodeIndex: 0,
     isPlaying: false,
     hasPlayed: true,
