@@ -9,7 +9,7 @@ class PodcastField extends PureComponent {
     show: {},
     episodes: [],
     track_id: "",
-    previousEpisodeIndex: 0,
+    // previousEpisodeIndex: 0,
     currentEpisodeIndex: 0,
     isPlaying: false,
     hasPlayed: true,
@@ -90,7 +90,7 @@ class PodcastField extends PureComponent {
       player.src = `https://api.spreaker.com/v2/episodes/${nextTrackId}/play`;
       this.play();
       this.setState({
-        previousEpisodeIndex: currentEpisodeIndex,
+        // previousEpisodeIndex: currentEpisodeIndex,
         currentEpisodeIndex: ++currentEpisodeIndex,
         track_id: nextTrackId
       });
@@ -113,7 +113,7 @@ class PodcastField extends PureComponent {
       this.play();
 
       this.setState({
-        previousEpisodeIndex: currentEpisodeIndex,
+        // previousEpisodeIndex: currentEpisodeIndex,
         currentEpisodeIndex: --currentEpisodeIndex,
         track_id: prevTrackId
       });
@@ -135,9 +135,12 @@ class PodcastField extends PureComponent {
       });
     }
 
+    setTimeout(function() {
+      player.play();
+    }, 150);
+
     utils.handleProgress();
     utils.handleVolume();
-    player.play();
     this.setState({ isPlaying: true });
 
     player.onended = () => {
